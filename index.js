@@ -61,34 +61,30 @@ function handlePasswordField(event) {
 passwordField.addEventListener("input", handlePasswordField);
 passwordField.addEventListener("blur", handlePasswordField);
 
+// Function to handle the sign in button
 function handleSignIn(event) {
     // Prevent the default behaviour of the form
     event.preventDefault();
 
-    // Check if the user exists in the database
-    const userExists = imaginaryDatabase.some((user) => {
-        return (
-            user.email === emailField.value &&
-            user.password === passwordField.value
-        );
-    });
+    // Find the user in the database using the entered email
+    const user = imaginaryDatabase.find(
+        (user) => user.email === emailField.value
+    );
 
-    // If the user exists, redirect to login.html
-    if (userExists) {
-        window.location.href = "./login.html";
+    if (!user) {
+        errorMessageSignIn.textContent =
+            "Sorry, we can't find an account with this email address.";
+        return;
+    } else if (passwordField.value !== user.password) {
+        errorMessageSignIn.textContent = "Incorrect email or password.";
+        return;
     } else {
-        // If the user does not exist, display an error message
-        if (
-            emailField.value.trim() !== "" &&
-            passwordField.value.trim() !== ""
-        ) {
-            errorMessageSignIn.textContent =
-                "Sorry, we can't find an account with this email address.";
-        }
+        // Redirect to login.html
+        window.location.href = "./login.html";
     }
 }
 
-// Add event listeners to the sign in button for click event
+// Add event listener to the sign in button for click event
 signInButton.addEventListener("click", handleSignIn);
 signInButton.addEventListener("click", handleEmailField);
 signInButton.addEventListener("click", handlePasswordField);
