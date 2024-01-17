@@ -76,7 +76,7 @@ function handleSignIn(event) {
             "Sorry, we can't find an account with this email address.";
         return;
     } else if (passwordField.value !== user.password) {
-        errorMessageSignIn.textContent = "Incorrect email or password.";
+        errorMessageSignIn.textContent = "Incorrect password.";
         return;
     } else {
         // Redirect to login.html
