@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Email Authentication</title>
+    </head>
+    <body>
+        <!-- Form for email authentication -->
+        <form method="post">
+            <!-- Error message for sign in -->
+            <div id="error-message-sign-in" style="color: #fff200eb"></div>
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" />
+            <br />
+            <!-- Error message for email validation -->
+            <div id="error-message-email" style="color: red"></div>
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" />
+            <br />
+            <!-- Error message for password validation -->
+            <div id="error-message-password" style="color: red"></div>
+            <button type="submit" id="signIn">Sign In</button>
+        </form>
+        <!-- JavaScript file for form validation -->
+        <script src="./index.js"></script>
+    </body>
+</html>
