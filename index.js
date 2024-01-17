@@ -71,7 +71,7 @@ function handleSignIn(event) {
         (user) => user.email === emailField.value
     );
 
-    if (!user) {
+    if (!user && emailField.value !== "" && passwordField.value !== "") {
         errorMessageSignIn.textContent =
             "Sorry, we can't find an account with this email address.";
         return;
